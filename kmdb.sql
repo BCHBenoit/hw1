@@ -86,7 +86,7 @@
 -- Batman Begins          2005           PG-13  Warner Bros.
 -- The Dark Knight        2008           PG-13  Warner Bros.
 -- The Dark Knight Rises  2012           PG-13  Warner Bros.
-
+-------------------------------------ESTO PG-13 ES MPAA RATING.
 -- Top Cast
 -- ========
 
@@ -115,11 +115,13 @@
 DROP TABLE movies;
 DROP TABLE studios;
 DROP TABLE actors;
+DROP TABLE characters;
+
 
 CREATE TABLE movies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT,
-    year_realesed INTEGER,
+    year_released INTEGER,
     MPAA_rating INTEGER,
     studio_id INTEGER
 );
@@ -131,8 +133,17 @@ CREATE TABLE studios (
 
 CREATE TABLE actors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT
-)
+    actor_name TEXT,
+    movie_id INTEGER
+);
+
+CREATE TABLE characters (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    character_name TEXT,
+    movie_id INTEGER,
+    actor_id INTEGER
+);
+
 --EN LA TABLA ACTORS FALTA VER COMO CONECTAR CON UNA DE LAS OTRAS ASUMO QUE MOVIE Y CON EL CHARACTER (QUE PODRIA ESTAR EN LA TABLA ACTORS O EN UNA TABLA SEPARADA CONECTADA A MOVIES)
 -- Create new tables, according to your domain model
 -- TODO!
