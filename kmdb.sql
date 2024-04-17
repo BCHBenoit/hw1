@@ -131,20 +131,26 @@ CREATE TABLE studios (
     studio TEXT
 );
 
-CREATE TABLE actors (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    actor_name TEXT,
-    movie_id INTEGER
-);
-
 CREATE TABLE characters (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    character_name TEXT,
+    character_name TEXT
+);
+
+CREATE TABLE actors (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    actor_name TEXT
+);
+
+CREATE TABLE relationships (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     movie_id INTEGER,
+    character_id INTEGER,
     actor_id INTEGER
 );
 
+
 --EN LA TABLA ACTORS FALTA VER COMO CONECTAR CON UNA DE LAS OTRAS ASUMO QUE MOVIE Y CON EL CHARACTER (QUE PODRIA ESTAR EN LA TABLA ACTORS O EN UNA TABLA SEPARADA CONECTADA A MOVIES)
+--UN MOVIE TIENE CHARACTERS
 -- Create new tables, according to your domain model
 -- TODO!
 
@@ -157,12 +163,44 @@ INSERT INTO studios (
 values
 ("Warner Bros.");
 
-INSERT INTO movies 
-(title, year_released, MPAA_rating,studio_id)
+INSERT INTO movies (
+    title, year_released, MPAA_rating,studio_id
+    )
 VALUES 
 ("Batman Begins", 2005, "PG-13", 1),
 ("The Dark Knight", 2008, "PG-13", 1),
 ("The Dark Knight Rises", 2012, "PG-13", 1);
+
+INSERT INTO characters (
+    character_name
+)
+VALUES 
+    ("Bruce Wayne"),
+    ("Alfred"),
+    ("Ra's Al Ghul"),
+    ("Rachel Dawes"),
+    ("Commissioner Gordon"),
+    ("Joker"),
+    ("Harvey Dent"),
+    ("Bane"),
+    ("John Blake"),
+    ("Selina Kyle");
+
+INSERT INTO actors (
+    actor_name
+)
+VALUES 
+("Christian Bale"),
+("Michael Caine"),
+("Liam Neeson"),
+("Katie Holmes"),
+("Gary Oldman"),
+("Heath Ledger"),
+("Aaron Eckhart"),
+("Maggie Gyllenhaal"),
+("Tom Hardy"),
+("Joseph Gordon-Levitt"),
+("Anne Hathaway");
 
 
 -- Prints a header for the movies output
