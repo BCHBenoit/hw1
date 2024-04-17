@@ -116,6 +116,7 @@ DROP TABLE movies;
 DROP TABLE studios;
 DROP TABLE actors;
 DROP TABLE characters;
+DROP TABLE relationships;
 
 
 CREATE TABLE movies (
@@ -201,6 +202,26 @@ VALUES
 ("Tom Hardy"),
 ("Joseph Gordon-Levitt"),
 ("Anne Hathaway");
+
+INSERT INTO relationships(
+    movie_id, character_id, actor_id
+)
+VALUES 
+(1, 1, 1),
+(1, 2, 2),
+(1, 3, 3),
+(1, 4, 4),
+(1, 5, 5),
+(2, 1, 1),
+(2, 6, 6),
+(2, 7, 7),
+(2, 2, 2),
+(2, 4, 8),
+(3, 1, 1),
+(3, 5, 5),
+(3, 8, 9),
+(3, 9, 10),
+(3, 10, 11);
 
 
 -- Prints a header for the movies output
